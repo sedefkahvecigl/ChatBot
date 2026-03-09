@@ -1,5 +1,5 @@
 Gemini-RAG Chatbot: Akıllı PDF Analiz Sistemi
-Bu proje, karmaşık PDF belgelerini (ilanlar, mali raporlar, teknik dokümanlar) işlemek, içindeki tabloları anlamlandırmak ve Google Gemini 1.5/2.0 modellerini kullanarak bu belgeler hakkında kullanıcıya doğru, bağlam duyarlı yanıtlar sunmak için geliştirilmiş bir Retrieval-Augmented Generation (RAG) asistanıdır.
+Bu proje; karmaşık PDF belgelerini (ilanlar, mali raporlar, teknik dokümanlar) işlemek, içindeki tabloları anlamlandırmak ve Google Gemini 2.5 modelini kullanarak bu belgeler hakkında kullanıcıya doğru, bağlam duyarlı yanıtlar sunmak için geliştirilmiş bir Retrieval-Augmented Generation (RAG) asistanıdır.
 
 Öne Çıkan Özellikler
 Gelişmiş Tablo İşleme: pdfplumber kullanarak PDF içindeki tabloları Markdown formatına dönüştürür. Bu sayede LLM, satır ve sütun ilişkilerini kaybetmeden karmaşık verileri analiz edebilir.
@@ -24,7 +24,9 @@ Altyapı: Docker & Docker Compose
 Veri Yönetimi: PyMilvus & Python 3.12+
 
 Proje Yapısı
+
 Plaintext
+
 chatbot_project/
 ├── app/
 │   ├── database/
@@ -39,8 +41,7 @@ chatbot_project/
 ├── streamlit_app.py           # Web arayüzü ana giriş dosyası
 ├── requirements.txt           # Gerekli Python kütüphaneleri
 └── README.md                  # Proje dökümantasyonu
-
-Kurulum ve Çalıştırma
+⚙️ Kurulum ve Çalıştırma
 1. Ön Koşullar
 
 Docker & Docker Compose kurulu olmalı.
@@ -58,7 +59,7 @@ Bash
 # Ana dizine dön
 cd ..
 python -m venv venv
-source venv/bin/activate  # Windows: venv\Scripts\activate
+source venv/bin/activate  # Windows için: venv\Scripts\activate
 pip install -r requirements.txt
 4. Veritabanı Şemasını Oluşturma
 
@@ -68,7 +69,7 @@ python app/database/milvus_manager.py
 
 Bash
 streamlit run streamlit_app.py
-Kullanım Senaryosu
+📖 Kullanım Senaryosu
 PDF Yükleme: Sol taraftaki sidebar panelinden istediğiniz PDF'i (Örn: Erasmus Hareketlilik İlanı) yükleyin.
 
 Hafızaya Öğret: "Hafızaya Öğret" butonuna basın. Sistem PDF'i sayfalarca tarar, tabloları ayıklar, parçalar ve Milvus'a indeksler.
@@ -76,14 +77,3 @@ Hafızaya Öğret: "Hafızaya Öğret" butonuna basın. Sistem PDF'i sayfalarca 
 Soru Sor: "Hangi ülkeler 1. grup hibe desteği alıyor?" gibi spesifik tablo soruları sorun.
 
 Yanıt Al: Bot, Milvus'tan ilgili tablo parçasını getirir ve Gemini aracılığıyla size insan dilinde özetler.
-
-Teknik Detaylar: Neden Bu Yapı?
-Neden Milvus? Hafızadaki veriler binlerce sayfaya ulaştığında geleneksel listeler yavaşlar. Milvus, vektör indeksleme teknolojisi ile hızı sabit tutar.
-
-Neden Markdown Table? PDF'ten düz metin olarak çekilen tablolar okunamaz hale gelir. Markdown formatı (|---|--- yapısı) LLM'lerin tablo yapısını "görmesini" sağlar.
-
-Neden Smart Chunking? 500 karakterlik sabit bölmeler bir cümleyi ortadan bölebilir. Bizim sistemimiz paragraf sonlarını kollar, böylece anlam bütünlüğü korunur.
-
-🛡️ Lisans
-
-Bu proje eğitim amaçlı geliştirilmiş bir açık kaynak projesidir.
