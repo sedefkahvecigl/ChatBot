@@ -6,7 +6,7 @@ Gelişmiş Tablo İşleme: pdfplumber kullanarak PDF içindeki tabloları Markdo
 
 Akıllı Parçalama (Smart Chunking): Metinleri rastgele değil, paragraf ve cümle bütünlüğünü koruyacak şekilde özyinelemeli (recursive) olarak böler.
 
-⚡ Yüksek Performanslı Vektör Arama: Milyonlarca veri parçası arasında milisaniyeler içinde benzerlik araması yapmak için Milvus (Vector Database) kullanır.
+Yüksek Performanslı Vektör Arama: Milyonlarca veri parçası arasında milisaniyeler içinde benzerlik araması yapmak için Milvus (Vector Database) kullanır.
 
 Modern Web Arayüzü: Streamlit ile kullanıcıların dosya yükleyebileceği ve gerçek zamanlı sohbet edebileceği etkileşimli bir panel sunar.
 
@@ -39,7 +39,8 @@ chatbot_project/
 ├── streamlit_app.py           # Web arayüzü ana giriş dosyası
 ├── requirements.txt           # Gerekli Python kütüphaneleri
 └── README.md                  # Proje dökümantasyonu
-⚙️ Kurulum ve Çalıştırma
+
+Kurulum ve Çalıştırma
 1. Ön Koşullar
 
 Docker & Docker Compose kurulu olmalı.
